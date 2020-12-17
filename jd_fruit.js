@@ -23,15 +23,15 @@ cron "5 6-18/6 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_s
 jd免费水果 搬的https://github.com/liuxiaoyucc/jd-helper/blob/a6f275d9785748014fc6cca821e58427162e9336/fruit/fruit.js
 */
 const $ = new Env('东东农场');
+let cookiesArr = [], cookie = '', jdFruitShareArr = [], isBox = false, notify, newShareCodes;
+//助力好友分享码(最多4个,否则后面的助力失败),原因:京东农场每人每天只有四次助力机会
+//此此内容是IOS用户下载脚本到本地使用，填写互助码的地方，同一京东账号的好友互助码请使用@符号隔开。
+//下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = [ // 这个列表填入你要助力的好友的shareCode
    //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '592ab793f1ed423eba38a71c8a70e27b@8da42306e5034e54869fe082610e5c96@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
+  '',
   //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '0af863521d704b2e9360e0480b119e19@8da42306e5034e54869fe082610e5c96@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
-  //账号三的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '0af863521d704b2e9360e0480b119e19@592ab793f1ed423eba38a71c8a70e27b@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
-  //账号四的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '0af863521d704b2e9360e0480b119e19@592ab793f1ed423eba38a71c8a70e27b@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',	
+  '',
 ]
 let message = '', subTitle = '', option = {}, isFruitFinished = false;
 const retainWater = 100;//保留水滴大于多少g,默认100g;
