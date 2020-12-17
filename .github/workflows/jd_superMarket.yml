@@ -6,7 +6,7 @@ name: jd_superMarket
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 * * * *'
+    - cron: '11 3-22/5 * * *' #此处为UTC-0时间
   watch:
     types: started
   repository_dispatch:
